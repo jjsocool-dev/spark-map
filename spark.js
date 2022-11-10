@@ -1,12 +1,12 @@
 function addPopUp(feature, layer){
 	var popupTxt = "";
-	var osmURL = ""
+	var osmURL = "";
 
 	// does this feature have a property named id?
 	if (feature.properties && feature.properties['@id']) {
 		// Excellent! We can now link directly to the feature
 		featureID = feature.properties['@id'];
-		osmURL = `https://www.openstreetmap.org/${featureID}`
+		osmURL = `https://www.openstreetmap.org/${featureID};`
 		popupTxt = `<b>OSM ${featureID.split('/')[0]} ID: ${featureID.split('/')[1]}</b>`;
 	} else if (feature.properties && feature.properties['id']) {
 		// Excellent! We can now link directly to the feature
@@ -36,7 +36,7 @@ function addPopUp(feature, layer){
 
 function addStyle(feature, layer){
 if (feature.properties.building) {
-if (feature.properties.building == 'house') {return houseStyle}
+if (feature.properties.building == 'house') {return houseStyle;}
 else if (feature.properties.building == 'apartments') {return apartmentsStyle}
 else if (feature.properties.building == 'school') {return schoolStyle}
 else if (feature.properties.building == 'garage') {return garageStyle}
@@ -50,7 +50,7 @@ return otherStyle
 	
 if (feature.properties.footway){
 if (feature.properties.footway == 'sidewalk') {return sidewalkStyle}
-else (return otherStyle}
+else {return otherStyle}
 }
 else {
 return otherStyle
