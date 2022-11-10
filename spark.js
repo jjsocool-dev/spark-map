@@ -47,6 +47,14 @@ else {return buildingsStyle}
 } else {
 return otherStyle
 }
+	
+if (feature.properties.footway){
+if (feature.properties.footway == 'sidewalk') {return sidewalkStyle}
+else (return otherStyle}
+}
+else {
+return otherStyle
+}
 
 if (feature.properties.highway){
 if (feature.properties.highway == 'railway') {return railwayStyle}
@@ -111,6 +119,12 @@ success: function (response) {
 }
 });
 }
+
+var sidewalkStyle = {
+color: "#eb7734",
+weight: 5,
+opacity: 0.70
+};
 
 var buildingsStyle = {
 color: "#E22B2B", 
