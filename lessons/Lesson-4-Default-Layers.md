@@ -32,7 +32,7 @@ Add the layer to the `overlay maps` group. This will add the layer to the table 
 			"STL Buildings": buildingsLayer
 		};
 ```
-But - be sure to add a semicolon after the first item! So it may look something like this...
+But - be sure to add a comma after the first item! So it may look something like this...
 ```
 		var overlayMaps = {
 			"STL Buildings": buildingsLayer;
