@@ -36,29 +36,50 @@ function addPopUp(feature, layer){
 
 function addStyle(feature, layer){
 if (feature.properties.building) {
-if (feature.properties.building == 'house') {return houseStyle;}
-else if (feature.properties.building == 'apartments') {return apartmentsStyle}
-else if (feature.properties.building == 'school') {return schoolStyle}
-else if (feature.properties.building == 'garage') {return garageStyle}
-else if (feature.properties.building == 'garages') {return garagesStyle}
-else if (feature.properties.building == 'residential') {return residentialStyle}	
-else if (feature.properties.building == 'service') {return serviceStyle}
-else {return buildingsStyle}
-} else {
-return otherStyle
+	switch (feature.properties.building) {
+		case 'house': 
+			return houseStyle;
+			break;
+		case 'school':
+			return schoolStyle;
+			break;
+		case 'apartments':
+			return apartmentsStyle;
+			break;
+		case 'garage':
+		case 'garages':
+			return garageStyle;
+			break;
+		case 'residential':
+			return residentialStyle;
+			break;
+		case 'service':
+			return serviceStyle;
+			break;
+		default:
+			return otherStyle;
+			break;
+	}
 }
-	
-if (feature.properties.footway){
-if (feature.properties.footway == 'sidewalk') {return sidewalkStyle}
-else {return otherStyle}
+else if (feature.properties.footway){
+	switch (feature.properties.footway) {
+		case 'sidewalk':
+			return sidewalkStyle;
+			break;
+		default:
+			return otherStyle;
+			break;
+	}
 }
-else {
-return otherStyle
-}
-
-if (feature.properties.highway){
-if (feature.properties.highway == 'railway') {return railwayStyle}
-else {return OwaysStyle}
+else if (feature.properties.highway){
+	switch (feature.properties.highway) {
+		case 'railway':
+			return railwayStyle;
+			break;
+		default:
+			return otherStyle;
+			break;
+	}
 }
 else {
 return otherStyle
