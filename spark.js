@@ -24,7 +24,11 @@ function addPopUp(feature, layer){
 
 	// Try to get the name of the feature
 	if (feature.properties && feature.properties.name) {
-		popupTxt = `<b>${feature.properties.name}</b>`;
+		if(feature.properties.building){
+			popupTxt = `<b>Building: ${feature.properties.name}</b>`;
+		} else {
+			popupTxt = `<b>${feature.properties.name}</b>`;
+		}
 	}
 
 
