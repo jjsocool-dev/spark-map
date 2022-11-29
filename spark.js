@@ -32,11 +32,6 @@ if (feature.properties.building){
 		popupTxT += '</br></br><b>This is a sidewalk for STL<b>'
 	}
 	layer.bindPopup(popupTxt);
-
-	if (osmURL != "") {
-		popupTxt += `</br></br>it is jaedyn look on this feature on <a target="_blank" href=${osmURL}>OSM</a>!`
-	}
-	layer.bindPopup(popupTxt);
 }
 
 function addStyle(feature, layer){
