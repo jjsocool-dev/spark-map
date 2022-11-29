@@ -26,45 +26,75 @@ function addPopUp(feature, layer){
 	if (feature.properties && feature.properties.name) {
 		popupTxt = `<b>${feature.properties.name}</b>`;
 	}
+
 if (feature.properties.building){
-		popupTxt += `</br></br><b>View this <i>library<i> on <a target="_blank" href=${osmURL}>OSM</a>!<b>`
-	}if(feature.properties.footway){
-		popupTxT += `</br></br><b>View this <i>Sidewalk<i> on <a target="_blank" href=${osmURL}>OSM</a>!<b>`
-	}
-	layer.bindPopup(popupTxt);
+	popupTxt += '</br></br><br>View this <i>School<i> on <a target="_blank" href=${osmURL}>OSM</a><b>'
 }
+	else if(feature.properties.sidewalk){
+	popupTxt += '</br></br><br>View this <i>sidewalk<i> on <a target="_blank" href=${osmURL}>OSM</a><b>'
+}
+	layer.bindPopup(popupTxt);
+} 
+		
+		
 
 function addStyle(feature, layer){
 if (feature.properties.building) {
-if (feature.properties.building == 'house') {return houseStyle;}
-else if (feature.properties.building == 'apartments') {return apartmentsStyle}
-else if (feature.properties.building == 'school') {return schoolStyle}
-else if (feature.properties.building == 'garage') {return garageStyle}
-else if (feature.properties.building == 'garages') {return garagesStyle}
-else if (feature.properties.building == 'residential') {return residentialStyle}	
-else if (feature.properties.building == 'service') {return serviceStyle}
-else {return buildingsStyle}
-} else {
-return otherStyle
-}
+switch (feature.properties.building){
+	case 'apartments':
+		return apartmentsStyle;
+		break;
 
-if (feature.properties.footway){
-if (feature.properties.footway == 'sidewalk') {return sidewalkStyle}
-else {return OwaysStyle}
-}
-else {
-return otherStyle
-}
-	
-if (feature.properties.highway){
-if (feature.properties.highway == 'railway') {return railwayStyle}
-else {return OwaysStyle}
-}
-else {
-return otherStyle
-}
+		case 'school':
+		return schoolStyle;
+		break;
 
+		case 'garage':
+		return garagesStyle;
+		break;
+
+		case 'garages':
+		return garagesStyle;
+		break;
+
+		case 'apartments':
+		return apartmentsStyle;
+		break;
+		
+   case 'service':
+ return serviceStyle
+break;
+		
+		default:
+		return otherStyle;
+		break;
 }
+}
+else if (feature.properties.footway){
+switch (feature.properties.footway) {
+		
+		case 'sidewalk':
+		return sidewalkStyle;
+		break;
+			
+		default:
+		return otherStyle;
+		break;
+}
+} 
+	else if (feature.properties.highway){	 	
+switch (feature.properties.highway) {
+		
+		case 'railway':
+			return railwayStyle;
+			break;
+		default:
+			return otherStyle;
+			break;
+	}
+}
+	 }
+
 
 function addGJLayer(GJson) {
 // Add buildings layer
