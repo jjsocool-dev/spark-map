@@ -26,7 +26,12 @@ function addPopUp(feature, layer){
 	if (feature.properties && feature.properties.name) {
 		popupTxt = `<b>${feature.properties.name}</b>`;
 	}
-
+if (feature.properties.building){
+		popupTxt += `</br></br><b>View this <i>library<i> on <a target="_blank" href=${osmURL}>OSM</a>!<b>`
+	}else if(feature.properties.footway){
+		popupTxT += '</br></br><b>This is a sidewalk for STL<b>'
+	}
+	layer.bindPopup(popupTxt);
 
 	if (osmURL != "") {
 		popupTxt += `</br></br>it is jaedyn look on this feature on <a target="_blank" href=${osmURL}>OSM</a>!`
