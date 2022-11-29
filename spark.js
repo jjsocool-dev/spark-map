@@ -29,7 +29,7 @@ function addPopUp(feature, layer){
 if (feature.properties.building){
 		popupTxt += `</br></br><b>View this <i>library<i> on <a target="_blank" href=${osmURL}>OSM</a>!<b>`
 	}if(feature.properties.footway){
-		popupTxT += `</br></br><b>This is a sidewalk for STL<b>`
+		popupTxT += `</br></br><b>View this <i>Sidewalk<i> on <a target="_blank" href=${osmURL}>OSM</a>!<b>`
 	}
 	layer.bindPopup(popupTxt);
 }
