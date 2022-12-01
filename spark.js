@@ -142,7 +142,10 @@ success: function (response) {
 		//lyrControl.addLayer(newLayer);
 
 		/* If adding the layer to the map, be sure to give it a name! */
-		
+		var query = window.pormpt("Name your layer something cool")
+		if (query ==null || query ==""?) {
+		    query = "New Layer";
+		    }
 		lyrControl.addOverlay(newLayer, "Overpass Query");
 		alert("Your layer with " + overpassGJ.features.length + "has been added to better Spark Map OF STL!");
 	}
