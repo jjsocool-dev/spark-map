@@ -128,7 +128,7 @@ success: function (response) {
 	output = response;
 	var overpassGJ = osmtogeojson(response);
 	if(overpassGJ.features.length == 0) {
-		alert("Your query did not return any results!")
+		alert("Your functions have been added")
 	} else {
 		var newLayer = L.geoJSON(overpassGJ, {
 			style: addStyle,
