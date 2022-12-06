@@ -116,7 +116,7 @@
 		        var button3 = L.DomUtil.create('a', 'leaflet-control-button', container);
 		        L.DomEvent.disableClickPropagation(button3);
 		        L.DomEvent.on(button3, 'click', function()
-				      {var query = window.prompt("Your layer has " + overpassGJ.features.length + " features!");
+				      {var query = window.prompt("Your layer has " + overpassGJ.features + " features!");
 				       			        	if (query == null || query == "") {
 			        	} else {
 								var bounds = map.getBounds();
