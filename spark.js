@@ -146,7 +146,7 @@ success: function (response) {
 		if (query ==null || query =="") {
 		    query = "New Layer";
 		    }
-		lyrControl.addOverlay(newLayer, "Overpass Query");
+		lyrControl.addOverlay(newLayer, query);
 		alert("Your layer with " + overpassGJ.features.length + "has been added to better Spark Map OF STL!");
 	}
 }
